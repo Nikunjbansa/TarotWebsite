@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-ivory: #FAF6F1;
+    --color-ivory-warm: #F3ECE2;
+    --color-ivory-card: #FFFDFA;
+    --color-lavender-soft: #EFE8F6;
+    --color-lavender: #D8C7EB;
+    --color-lavender-deep: #8D6CA9;
+    --color-rose-soft: #F7EBED;
+    --color-rose: #DFB4B6;
+    --color-rose-deep: #B5727B;
+    --color-plum-deep: #2B142C;
+    --color-plum: #411E42;
+    --color-plum-muted: #654566;
+    --color-gold: #C6A16B;
+    --color-gold-soft: #E8D7BC;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-ivory);
+    color: var(--color-plum-deep);
+  }
+
+  h1, h2, h3, h4, .font-serif-display {
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Standardized Button System */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background-color: #2B142C;
+  color: #FAF6F1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(43, 20, 44, 0.12);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: #411E42;
+  box-shadow: 0 6px 16px rgba(43, 20, 44, 0.18);
+  transform: translateY(-1px);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background-color: #FFFDFA;
+  color: #2B142C;
+  border: 1px solid rgba(198, 161, 107, 0.45);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background-color: #EFE8F6;
+  border-color: #8D5062;
+  color: #2B142C;
+  transform: translateY(-1px);
+}
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background-color: transparent;
+  color: #411E42;
+  border: 1px solid #D8C7EB;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  background-color: #EFE8F6;
+  color: #2B142C;
+}
+
+.font-serif-accent {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+}
+
+.bg-sanctuary-mesh {
+  background-color: #FAF6F1;
+  background-image:
+    radial-gradient(at 12% 18%, rgba(216, 199, 235, 0.48) 0px, transparent 52%),
+    radial-gradient(at 88% 14%, rgba(223, 180, 182, 0.42) 0px, transparent 48%),
+    radial-gradient(at 72% 82%, rgba(239, 232, 246, 0.55) 0px, transparent 50%),
+    radial-gradient(at 20% 85%, rgba(243, 236, 226, 0.8) 0px, transparent 55%);
+}
+
+.bg-plum-velvet {
+  background-color: #2B142C;
+  background-image:
+    radial-gradient(circle at 20% 25%, rgba(141, 108, 169, 0.28) 0%, transparent 55%),
+    radial-gradient(circle at 85% 75%, rgba(181, 114, 123, 0.24) 0%, transparent 50%);
+}
+
+.glass-ivory {
+  background: rgba(255, 253, 250, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.card-sanctuary {
+  background: linear-gradient(180deg, #FFFDFA 0%, #FAF5EF 100%);
+  border: 1px solid rgba(198, 161, 107, 0.26);
+  box-shadow: 0 12px 32px -18px rgba(43, 20, 44, 0.16);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+
+.card-sanctuary:hover {
+  transform: translateY(-4px);
+  border-color: rgba(181, 114, 123, 0.55);
+  box-shadow: 0 22px 44px -20px rgba(43, 20, 44, 0.22);
+}
+
+.card-journey {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+  box-shadow: 0 8px 24px -18px rgba(43, 20, 44, 0.14);
+}
+
+.card-journey:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(181, 114, 123, 0.7);
+  background-color: #FFFDFA;
+  box-shadow: 0 24px 48px -18px rgba(43, 20, 44, 0.24),
+    0 0 0 1px rgba(198, 161, 107, 0.22);
+}
+
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-soft {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 70s linear infinite;
+}
+
+.animate-float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-slow-spin,
+  .animate-float-soft,
+  .animate-fade-up {
+    animation: none !important;
+  }
+  .card-sanctuary,
+  .card-journey {
+    transition: none !important;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6F1;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8C7EB;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B5727B;
+}
+
