@@ -5,7 +5,7 @@
   "description": "Akansha.Predicts — Astrology, Tarot Reading, Spiritual Guidance and Energy Healing by Akansha Bansal",
   "scripts": {
     "dev": "concurrently -n API,WEB -c magenta,cyan \"tsx watch server/src/index.ts\" \"npm --prefix client run dev\"",
-    "build": "npm --prefix client run build && tsc -p server/tsconfig.json",
+    "build": "npm --prefix client install --include=dev && npm --prefix client run build && tsc -p server/tsconfig.json",
     "start": "node server/dist/index.js",
     "seed": "tsx server/src/db/seed.ts",
     "test": "tsx --test server/tests/api.test.ts"
