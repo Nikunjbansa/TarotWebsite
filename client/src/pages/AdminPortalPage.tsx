@@ -55,7 +55,7 @@ const SERVICE_IMAGES = [
   { label: 'Shiv–Shakti Equilibrium', url: '/images/service-shiv-shakti.jpg' },
   { label: 'Maa Tara Lotus Shrine', url: '/images/service-maa-tara.jpg' },
   { label: 'Lama Fera Singing Bowl', url: '/images/service-lama-fera.jpg' },
-  { label: 'M.E.V Crystal Resonance', url: '/images/service-mev.jpg' },
+  { label: 'Mantra Energy Vortex (MEV)', url: '/images/service-mev.jpg' },
   { label: 'Mahakali Shakti Altar', url: '/images/service-mahakali.jpg' },
   { label: 'Hoomkar Sri Yantra', url: '/images/service-hoomkar.jpg' },
   { label: 'Healing Altar & Lotus', url: '/images/service-healing.jpg' },

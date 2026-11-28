@@ -71,7 +71,7 @@ export function HeroSection() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-[#C6A16B]/25">
               <div>
                 <p className="font-serif-display text-2xl sm:text-3xl font-semibold text-[#2B142C]">
-                  12+ Yrs
+                  5 Years+
                 </p>
                 <p className="text-xs text-[#654566]">
                   Jyotish, Tarot &amp; Healing Mastery
@@ -79,10 +79,10 @@ export function HeroSection() {
               </div>
               <div>
                 <p className="font-serif-display text-2xl sm:text-3xl font-semibold text-[#2B142C]">
-                  3,400+
+                  500+ Sessions
                 </p>
                 <p className="text-xs text-[#654566]">
-                  1:1 Sessions Worldwide
+                  1:1 Consultations Worldwide
                 </p>
               </div>
               <div>

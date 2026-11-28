@@ -73,8 +73,8 @@ export function Navbar() {
               <span className="font-serif-display text-xl sm:text-2xl font-semibold tracking-tight text-[#2B142C] block">
                 {publicConfig.sanctuaryName}
               </span>
-              <span className="text-xs uppercase tracking-[0.18em] text-[#654566] block font-medium">
-                Astrology · Tarot · Spiritual Healing
+              <span className="text-xs uppercase tracking-[0.08em] sm:tracking-[0.14em] text-[#654566] block font-medium">
+                Tarot · Tarot Reading · Energy Healing · Rituals
               </span>
             </div>
           </Link>

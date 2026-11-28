@@ -26,9 +26,9 @@ const TESTIMONIALS = [
   {
     name: 'Arjun Rajagopal',
     location: 'London',
-    modality: 'M.E.V Healing + Hoomkar with Halaum',
+    modality: 'Mantra Energy Vortex (MEV) + Hoomkar with Halaum',
     quote:
-      'I was skeptical at first, yet the M.E.V session quieted months of relentless overthinking in a single afternoon. Followed by Hoomkar with Halaum, my focus and sleep transformed within days.',
+      'The MEV session cleared stagnant energy around me and brought deep physical, emotional, and spiritual balance. Followed by Hoomkar with Halaum, my focus and inner calm transformed within days.',
   },
   {
     name: 'Priyanka Chaturvedi',

@@ -40,12 +40,11 @@ export function buildClientDirectWhatsappUrl(
 
 export function buildServiceBookingWhatsappMessage(
   serviceName: string,
-  price: number,
+  _price: number,
   brandName = 'Akansha.Predicts'
 ): string {
   return [
     `Hello ${brandName}, I would like to book ${serviceName}.`,
-    `Service Price: ${formatInr(price)}`,
     `Please share the next steps.`,
   ].join('\n');
 }

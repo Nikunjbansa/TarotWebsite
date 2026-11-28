@@ -1,42 +1,46 @@
-import { Sparkles, Compass, Sparkle, Heart, Flame } from 'lucide-react';
+import { useState } from 'react';
+import {
+  Sparkles,
+  Compass,
+  Sparkle,
+  Heart,
+  Flame,
+  Sun,
+  Moon,
+  Stars,
+  Shield,
+  Waves,
+  Info,
+  MessageCircle,
+  type LucideIcon,
+} from 'lucide-react';
 import { SacredDivider } from '../common/SacredGeometry';
 import { useSanctuary } from '../../lib/authContext';
+import { buildServiceBookingWhatsappUrl } from '../../lib/format';
+import { ServiceDetailModal } from './ServiceCard';
+import type { ServiceItem } from '../../types';
 
-interface PracticeArea {
-  title: string;
-  description: string;
-  icon: typeof Sparkles;
-}
-
-const PRACTICE_AREAS: PracticeArea[] = [
-  {
-    title: 'Tarot & Akashic Readings',
-    description:
-      'Intuitive card spreads and soul-level insights to illuminate current crossroads, relationship dynamics, and recurring life patterns.',
-    icon: Sparkles,
-  },
-  {
-    title: 'Vedic Astrology',
-    description:
-      'Grounded birth-chart analysis and planetary timing to bring clarity to career direction, personal milestones, and life transitions.',
-    icon: Compass,
-  },
-  {
-    title: 'Energy & M.E.V Healing',
-    description:
-      'Gentle subtle-energy clearing and Mind–Emotion–Vibration alignment to release stress, calm mental chatter, and restore balance.',
-    icon: Heart,
-  },
-  {
-    title: 'Spiritual Guidance & Ho’omkar',
-    description:
-      'Compassionate 1:1 mentoring paired with sacred sound resonance to dissolve lingering stagnation and reconnect you with inner peace.',
-    icon: Flame,
-  },
-];
+const SERVICE_ICONS: Record<string, LucideIcon> = {
+  'akashik-tarot-reading': Stars,
+  'tarot-reading': Sparkles,
+  astrology: Compass,
+  rituals: Flame,
+  'shiv-shakti-healing': Sun,
+  'maa-tara-healing': Moon,
+  'lama-fera-healing': Waves,
+  'm-e-v-healing': Heart,
+  'mahakali-healing': Shield,
+  'hoomkar-with-halaum': Sparkle,
+};
 
 export function AboutSection() {
-  const { publicConfig } = useSanctuary();
+  const { publicConfig, services } = useSanctuary();
+  const [detailService, setDetailService] = useState<ServiceItem | null>(null);
+
+  // Deduplicate by slug and preserve configured catalogue order
+  const showcaseServices = services.filter(
+    (svc, idx, arr) => arr.findIndex((item) => item.slug === svc.slug) === idx
+  );
 
   return (
     <section id="about" className="py-20 sm:py-24 bg-[#FAF6F1]">
@@ -110,7 +114,7 @@ export function AboutSection() {
               <p className="text-[#5F3D61]">
                 Through intuitive Tarot Readings, Akashic Records consultations,
                 and Vedic Astrology alongside restorative Energy Healing—including
-                focused M.E.V (Mind–Emotion–Vibration) alignment and sacred
+                Mantra Energy Vortex (MEV) healing and sacred
                 Ho’omkar sound resonance—I provide a quiet space to pause,
                 reflect, and gently untangle emotional knots.
               </p>
@@ -124,31 +128,6 @@ export function AboutSection() {
                 warmth, complete confidentiality, and actionable clarity to help
                 you move forward with confidence.
               </p>
-            </div>
-
-            {/* Practice Focus Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-              {PRACTICE_AREAS.map((area) => {
-                const Icon = area.icon;
-                return (
-                  <div
-                    key={area.title}
-                    className="p-4 rounded-2xl bg-[#FFFDFA] border border-[#D8C7EB]/70 hover:border-[#B5727B]/60 transition-colors shadow-sm"
-                  >
-                    <div className="flex items-center gap-2.5 mb-1.5">
-                      <span className="w-8 h-8 rounded-xl bg-[#EFE8F6] text-[#2B142C] flex items-center justify-center shrink-0">
-                        <Icon className="w-4 h-4 text-[#8D6CA9]" />
-                      </span>
-                      <h3 className="font-serif-display text-base sm:text-lg font-semibold text-[#2B142C]">
-                        {area.title}
-                      </h3>
-                    </div>
-                    <p className="text-xs sm:text-[13px] text-[#5F3D61] leading-relaxed pl-10">
-                      {area.description}
-                    </p>
-                  </div>
-                );
-              })}
             </div>
 
             {/* CTA & Reassurance */}
@@ -165,7 +144,102 @@ export function AboutSection() {
             </div>
           </div>
         </div>
+
+        {/* Services Showcase (replaces previous 4-column practice cards) */}
+        {showcaseServices.length > 0 && (
+          <div className="mt-16 pt-12 border-t border-[#C6A16B]/25">
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+              <div className="space-y-1.5">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#8D5062]">
+                  <Sparkles className="w-3.5 h-3.5 text-[#C6A16B]" aria-hidden="true" />
+                  Offerings &amp; Modalities
+                </span>
+                <h3 className="font-serif-display text-2xl sm:text-3xl font-semibold text-[#2B142C]">
+                  Sacred Services by {publicConfig.practitionerName}
+                </h3>
+              </div>
+              <p className="text-xs sm:text-sm text-[#5F3D61] max-w-md">
+                Every offering is tailored with calm presence, confidentiality, and direct WhatsApp coordination.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+              {showcaseServices.map((service) => {
+                const Icon = SERVICE_ICONS[service.slug] || Sparkles;
+                const whatsappUrl = buildServiceBookingWhatsappUrl(
+                  publicConfig.whatsappBusinessNumber,
+                  service.name,
+                  service.price,
+                  publicConfig.sanctuaryName
+                );
+
+                return (
+                  <article
+                    key={service.id}
+                    className="group card-sanctuary rounded-2xl overflow-hidden flex flex-col justify-between h-full"
+                  >
+                    <div>
+                      <div className="relative h-36 overflow-hidden bg-[#2B142C]">
+                        <img
+                          src={service.imageUrl}
+                          alt={service.name}
+                          loading="lazy"
+                          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1B0B1C]/80 via-[#2B142C]/20 to-transparent" />
+                        <span
+                          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-[#FAF6F1]/90 backdrop-blur-sm border border-[#C6A16B]/40 text-[#2B142C] flex items-center justify-center shadow-sm"
+                          aria-hidden="true"
+                        >
+                          <Icon className="w-4 h-4 text-[#8D5062]" />
+                        </span>
+                        <span className="absolute bottom-2.5 left-3.5 right-3.5 text-xs font-medium text-[#E8D7BC] truncate">
+                          {service.category}
+                        </span>
+                      </div>
+
+                      <div className="p-4 sm:p-5 space-y-2">
+                        <h4 className="font-serif-display text-xl font-semibold text-[#2B142C] leading-snug">
+                          {service.name}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-[#5F3D61] leading-relaxed line-clamp-3">
+                          {service.shortDescription}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="px-4 sm:px-5 pb-4 pt-3 border-t border-[#E8D7BC]/45 flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setDetailService(service)}
+                        className="inline-flex items-center justify-center gap-1.5 h-9 px-3.5 rounded-full border border-[#D8C7EB] bg-[#FAF6F1] hover:bg-[#EFE8F6] text-xs font-semibold text-[#411E42] transition-colors cursor-pointer shrink-0"
+                      >
+                        <Info className="w-3.5 h-3.5 text-[#8D6CA9]" aria-hidden="true" />
+                        Details
+                      </button>
+                      <a
+                        href={whatsappUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 h-9 px-3.5 rounded-full text-xs font-semibold transition-colors bg-[#2B142C] text-[#FAF6F1] hover:bg-[#411E42] shadow-sm"
+                      >
+                        <MessageCircle className="w-3.5 h-3.5 text-[#E8D7BC]" aria-hidden="true" />
+                        Book Now
+                      </a>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
+
+      <ServiceDetailModal
+        service={detailService}
+        publicConfig={publicConfig}
+        onClose={() => setDetailService(null)}
+      />
     </section>
   );
 }

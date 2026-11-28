@@ -188,16 +188,36 @@ export function ServiceDetailModal({
               <h4 className="font-serif-display text-lg font-semibold text-[#2B142C]">
                 What This Session Awakens
               </h4>
-              <ul className="space-y-2">
-                {service.benefits.map((b) => (
-                  <li
-                    key={b}
-                    className="flex items-start gap-2 text-xs sm:text-sm text-[#411E42]"
-                  >
-                    <CheckCircle2 className="w-4 h-4 text-[#8D6CA9] shrink-0 mt-0.5" />
-                    <span>{b}</span>
-                  </li>
-                ))}
+              <ul className="space-y-2.5">
+                {service.benefits.map((b) => {
+                  const sepIdx = b.indexOf(' – ');
+                  const hasHeading = sepIdx !== -1;
+                  const heading = hasHeading ? b.slice(0, sepIdx) : null;
+                  const desc = hasHeading ? b.slice(sepIdx + 3) : b;
+
+                  return (
+                    <li
+                      key={b}
+                      className="flex items-start gap-2.5 text-xs sm:text-sm text-[#411E42] leading-relaxed"
+                    >
+                      <CheckCircle2
+                        className="w-4 h-4 text-[#8D6CA9] shrink-0 mt-0.5"
+                        aria-hidden="true"
+                      />
+                      <span>
+                        {heading && (
+                          <>
+                            <strong className="font-semibold text-[#2B142C]">
+                              {heading}
+                            </strong>
+                            {' – '}
+                          </>
+                        )}
+                        {desc}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}

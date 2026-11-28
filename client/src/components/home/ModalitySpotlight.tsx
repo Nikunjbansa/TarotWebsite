@@ -35,11 +35,11 @@ const SPOTLIGHTS = [
     key: 'energy-healing',
     title: 'Himalayan & Shakti Healing',
     modalities:
-      'Shiv–Shakti · Maa Tara · Lama Fera · M.E.V · Mahakali Healing',
+      'Shiv–Shakti · Maa Tara · Lama Fera · Mantra Energy Vortex (MEV) · Mahakali Healing',
     image: '/images/service-healing.jpg',
     heading: 'Subtle Aura Restoration & Deep Energetic Liberation',
     description:
-      'Beyond insight lies embodied energetic renewal. From Himalayan Lama Fera chakra clearing and Maa Tara compassionate grace to Shiv–Shakti equilibrium, M.E.V frequency calibration, and Mahakali cord-cutting, each transmission meets your nervous system with gentle authority.',
+      'Beyond insight lies embodied energetic renewal. From Himalayan Lama Fera chakra clearing and Maa Tara compassionate grace to Shiv–Shakti equilibrium, MEV aura scanning and space clearing, and Mahakali cord-cutting, each transmission meets your nervous system with gentle authority.',
     highlights: [
       'Clears heaviness, emotional overwhelm, and energetic fatigue',
       'Restores inner stillness, healthy boundaries, and clarity',

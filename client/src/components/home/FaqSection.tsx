@@ -13,11 +13,11 @@ const FAQS = [
   },
   {
     q: 'Do I need my exact Time and Place of Birth?',
-    a: 'Exact Date, Time, and Place of Birth are helpful for Vedic Astrology and chart-aligned Rituals—you can share them directly during your WhatsApp chat after clicking Book Now. If you do not know your birth time, you can still book Tarot Reading, Akashik Tarot Reading, or any of our energy healing modalities (Shiv–Shakti, Maa Tara, Lama Fera, M.E.V, Mahakali, or Hoomkar with Halaum) effortlessly.',
+    a: 'Exact Date, Time, and Place of Birth are helpful for Vedic Astrology and chart-aligned Rituals—you can share them directly during your WhatsApp chat after clicking Book Now. If you do not know your birth time, you can still book Tarot Reading, Akashik Tarot Reading, or any of our energy healing modalities (Shiv–Shakti, Maa Tara, Lama Fera, Mantra Energy Vortex (MEV), Mahakali, or Hoomkar with Halaum) effortlessly.',
   },
   {
     q: 'How do I know which energy healing modality is right for me?',
-    a: 'Each service card outlines its core focus—Maa Tara softens acute grief and anxiety, Lama Fera clears deep aura stagnation, Shiv–Shakti restores emotional/relational balance, M.E.V calms mental chatter, Mahakali strengthens energetic boundaries, and Hoomkar with Halaum dissolves stubborn inertia. You may also share your intent when messaging us on WhatsApp.',
+    a: 'Each service card outlines its core focus—Maa Tara softens acute grief and anxiety, Lama Fera clears deep aura stagnation, Shiv–Shakti restores emotional/relational balance, MEV uses ancient mantras, the five elements, and Mantra Energy Radiators (MERs) for aura scanning and space clearing, Mahakali strengthens energetic boundaries, and Hoomkar with Halaum dissolves stubborn inertia. You may also share your intent when messaging us on WhatsApp.',
   },
   {
     q: 'Are all sessions strictly confidential?',

@@ -69,7 +69,7 @@ describe('Akansha.Predicts API Integration Tests', () => {
       'Shiv–Shakti Healing',
       'Maa Tara Healing',
       'Lama Fera Healing',
-      'M.E.V Healing',
+      'Mantra Energy Vortex (MEV) Healing',
       'Mahakali Healing',
       'Hoomkar with Halaum',
     ];
